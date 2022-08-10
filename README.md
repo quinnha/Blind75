@@ -1,2 +1,2 @@
 # Blind75
-Code for Blind75 LeetCode questions
+Code for Blind75 LeetCode questionss
