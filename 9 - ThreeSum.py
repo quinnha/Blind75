@@ -45,15 +45,45 @@
 
 #     return res
 
-# 2 Poitner Method (better)
+# 3 Poitner Method (better)
 
+# so sort, and then keep 3 pointers -> iterate through the first left pointer, and do the
+# sorted two sum method to find a match 
 def threeSum(nums):
 
+    nums = sorted(nums)
+    target = 0
+
+    res = []
+
+    for first_left in range (len(nums) -1): #setting first pointer to move thru lsit
+        
+        left = first_left + 1 #setting the values for left and left based off first_left
+        right = len(nums)-1
+
+        while left < right: #twosum sorted method
+
+            if nums[first_left] + nums[left] + nums[right] > target:
+                right -= 1
+            elif nums[first_left] + nums[left] + nums[right] < target:
+                left += 1
+            else:
+                if [nums[first_left], nums[left], nums[right]] not in res: #prevent dups
+                    res.append([nums[first_left], nums[left], nums[right]])
+                right -= 1
+                left += 1
+        
+    return res
+    return -1
 
 
-    return 0
 
-print (threeSum([1, -1, 0]))
+    return nums
+
+print (threeSum([-1, 0, 1, 2, -1, -4]))
+print (threeSum([0,0,0]))
+print (threeSum([0,2,1]))
+
 
 
 
