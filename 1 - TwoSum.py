@@ -18,5 +18,5 @@ def twoSum (nums, target):
 
 
 
-print (twoSum([3,3,4], 6)) 
-print (twoSum([3,5,4], 8)) 
+print (twoSum([2,7,11,15], 9)) 
+# print (twoSum([3,5,4], 8)) 
