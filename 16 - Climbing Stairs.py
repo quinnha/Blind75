@@ -8,4 +8,4 @@ def F(n):
     elif n == 1: return 1
     else: return F(n-1)+F(n-2)
 
-print(climbStairs(3))
+print(climbStairs(3))   
