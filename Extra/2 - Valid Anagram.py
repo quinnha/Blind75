@@ -1,6 +1,7 @@
 # O(n) time! make 2 dicts and comapre the two, python will return true regardless of key/value order :) 
 
 def isAnagram(s,t):
+
     s_set = set(s)
     t_set = set(t)
     dic_s = {}
@@ -13,9 +14,10 @@ def isAnagram(s,t):
 
     return (dic_s == dic_t) 
 
-print(isAnagram("a", "ab"))
 
 
-# d = {"a": 3, "b": 4}
-# d1 = {"b":4}
-# print (d == d1)
+print(isAnagram("anagram", "nagaram"))
+
+# sort alphabetically and compare lol, but is slower
+def isAnagram2(s,t):
+     return ("".join(sorted(s)) == "".join(sorted(t)))
