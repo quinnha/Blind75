@@ -8,7 +8,7 @@ def maximumUnits(boxTypes, truckSize):
             if truckSize > box:
                 truckSize -= box
                 boxes += box * units
-            else:
+            else: # acts as if trucksize == box (will take largest)
                 boxes += truckSize * units
                 return boxes
     return boxes
