@@ -1,4 +1,4 @@
-
+# just dfs on the boxes around you
 def numIslands(grid):
 
     if not grid: return 0
