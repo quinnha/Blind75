@@ -45,8 +45,6 @@ def countMinimumOperations(password):
             print (c_list[i])
             out += c_list[i]
         return out
-
-
-            
+ 
 print(countMinimumOperations("bigbangt"))
     
