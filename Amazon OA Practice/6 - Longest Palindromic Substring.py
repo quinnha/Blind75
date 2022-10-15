@@ -23,6 +23,7 @@ def longestPalindrome1(s):
                     m = len(sub)
     return out
 
+# n^2 weeeeee
 def longestPalindrome(s):
     
     n = len(s)
