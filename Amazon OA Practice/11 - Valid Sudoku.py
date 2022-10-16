@@ -19,7 +19,7 @@ def isValidSudoku(board):
         check = {}
 
     check = {}
-
+    s = board
     # squares
     s1 = s[0][0:3] + s[1][0:3] + s[2][0:3]
     s2 = s[0][3:6] + s[1][3:6] + s[2][3:6]
