@@ -1,2 +1,2 @@
 # Blind75
-Code for Blind75 LeetCode questions
+Repo for leetcode questions (it used to be for blind 75 haha)
