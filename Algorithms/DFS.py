@@ -11,3 +11,20 @@ def dfs(i,j):
         dfs(i, j + 1)
         dfs(i, j - 1)
 
+def dfs(node):
+
+    if not node: return 
+
+    s = []
+    s.append(node)
+
+    visited = {}
+
+    while s:
+        val = s.pop()
+
+        for neighbour in val.neighbour:
+            if neighbour not in visited:
+                s.append(neighbour)
+                visited[neighbour] = ""
+                # do stuff
