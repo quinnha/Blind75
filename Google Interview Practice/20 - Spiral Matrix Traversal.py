@@ -20,7 +20,7 @@ def traverse(grid):
                     print(grid[row1][i])
                 horizontal -= 1
                 row1 += 1
-            elif cur_direction == "L"":
+            elif cur_direction == "L":
                 for i in range(column2, column1 + 1):
                     print(grid[row2][i])
                 horizontal -= 1
