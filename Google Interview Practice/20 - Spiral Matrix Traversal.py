@@ -15,7 +15,7 @@ def traverse(grid):
 
         while horizontal != 0 and vertical != 0:
             cur_direction = direction[counter % 4]
-            if cur_direction == "R"":
+            if cur_direction == "R":
                 for i in range(column1, column2 + 1):
                     print(grid[row1][i])
                 horizontal -= 1
