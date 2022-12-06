@@ -1,2 +1,2 @@
-# Blind75
-Repo for leetcode questions (it used to be for blind 75 haha)
+# DSA Practice
+Repository for Data Structures and Algorithms Questions. Includes questions from Blind 75, tagged company questions, and general practice questions.
