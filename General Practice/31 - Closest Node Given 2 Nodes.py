@@ -39,23 +39,23 @@ def closestMeetingNode(edges, node1: int, node2: int) -> int:
 
 # Better Answer
 
-def closestMeetingNode(edges, n1: int, n2: int) -> int:
+# def closestMeetingNode(edges, n1: int, n2: int) -> int:
 
-    def dfs(node):
+#     def dfs(node):
     
-        dist, res = 0, [-1]*len(edges)
+#         dist, res = 0, [-1]*len(edges)
         
-        while node != -1 and res[node] == -1:
-            res[node], node = dist, edges[node]
-            dist += 1
+#         while node != -1 and res[node] == -1:
+#             res[node], node = dist, edges[node]
+#             dist += 1
             
-        return res
+#         return res
 
-    ans = (inf,-1)
+#     ans = (inf,-1)
     
-    for i, (d1,d2) in enumerate(zip(dfs(n1),dfs(n2))):
+#     for i, (d1,d2) in enumerate(zip(dfs(n1),dfs(n2))):
     
-        if d1 == -1 or d2 == -1: continue
-        ans = min(ans,(max(d1, d2),i))
+#         if d1 == -1 or d2 == -1: continue
+#         ans = min(ans,(max(d1, d2),i))
             
-    return ans[1]
+#     return ans[1]
