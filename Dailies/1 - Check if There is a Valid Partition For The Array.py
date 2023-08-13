@@ -29,11 +29,3 @@ def validPartition(nums):
         dp[0], dp[1], dp[2] = dp[1], dp[2], current_dp
 
     return dp[2]
-
-
-print(validPartition([4, 4, 4, 5, 6]))
-print(validPartition([1, 1, 1, 2]))
-
-# x = [0, 1, 2]
-# for i in range(2, len(x) - 1):
-#     print("hi")
