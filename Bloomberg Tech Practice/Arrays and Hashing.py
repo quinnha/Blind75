@@ -13,3 +13,13 @@ def twoSum(nums, target):
 # valid anagram
 def isAnagram(s, t):
     return Counter(s) == Counter(t)
+
+# contains duplicate
+def containsDuplicate(nums):
+    
+    numbers = Counter(nums)
+    
+    for num in numbers:
+        if numbers[num] != 1: return True
+    return False
+    
