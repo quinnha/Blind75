@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import *
 
 # two sum
 def twoSum(nums, target):
@@ -18,8 +18,17 @@ def isAnagram(s, t):
 def containsDuplicate(nums):
     
     numbers = Counter(nums)
-    
+
     for num in numbers:
         if numbers[num] != 1: return True
     return False
     
+# group anagrams
+def groupAnagrams(strs):
+
+    sort = defaultdict(list)
+
+    for s in strs:
+        sort["".join(sorted(s))].append(s)
+
+    return [sort[key] for key in sort.keys()]
