@@ -74,3 +74,30 @@ def productExceptSelf(nums):
         t *= num
 
     return ret
+
+
+# longest consecutive sequence
+def longestConsecutive(nums):
+    num_set = set(nums)
+    longest = 0
+
+    for num in nums:
+        j, curr_longest = 1, 1
+        # look left
+        while num - j in num_set:
+            num_set.remove(num - j)
+            j += 1
+            curr_longest += 1
+        j = 1
+        # look right
+        while num + j in num_set:
+            num_set.remove(num + j)
+            j += 1
+            curr_longest += 1
+        longest = max(longest, curr_longest)
+
+    return longest
+
+
+print(longestConsecutive([9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6]))
+print(longestConsecutive([0, -1]))
