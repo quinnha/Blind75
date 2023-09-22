@@ -85,3 +85,38 @@ def reorderList(head):
         forwards.next = None
 
     return head
+
+
+# reorder list 2 -> find middle, reverse middle, merge lists together
+def reorderList(head):
+    """
+    Do not return anything, modify head in-place instead.
+    """
+
+    if not head:
+        return []
+
+    slow = head
+    fast = head
+
+    while fast.next and fast.next.next:
+        slow = slow.next
+        fast = fast.next.next
+
+    reverse = None
+
+    prev, curr = None, slow.next
+    while curr:
+        nextt = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nextt
+    slow.next = None
+
+    head1, head2 = head, prev
+    while head2:
+        nextt = head1.next
+        head1.next = head2
+        head1 = head2
+        head2 = nextt
+    return head
