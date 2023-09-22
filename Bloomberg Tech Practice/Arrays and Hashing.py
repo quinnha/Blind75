@@ -55,3 +55,22 @@ def topKFrequent(nums, k):
         ret.append(heappop(heap)[1])
 
     return ret
+
+
+# product except self
+def productExceptSelf(nums):
+    ret = [1] * len(nums)
+
+    # left
+    t = 1
+    for i, num in enumerate(nums):
+        ret[i] *= t
+        t *= num
+
+    # right
+    t = 1
+    for i, num in enumerate(nums[::-1]):
+        ret[len(nums) - i - 1] *= t
+        t *= num
+
+    return ret
