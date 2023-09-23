@@ -15,3 +15,30 @@ def maxProfit(prices):
             r += 1
 
     return max_profit
+
+
+# longest unique substring
+def lengthOfLongestSubstring(s):
+    if len(s) == 0:
+        return 0
+    if len(s) == 1:
+        return 1
+    if len(s) == 2:
+        return 2 if s[0] != s[1] else 1
+
+    l = 0
+    r = 0
+
+    seen = set()
+    max_len = 0
+
+    while l != len(s) and r != len(s):
+        if s[r] not in seen:
+            seen.add(s[r])
+            r += 1
+            max_len = max(max_len, r - l)
+        else:
+            seen.remove(s[l])
+            l += 1
+
+    return max_len
