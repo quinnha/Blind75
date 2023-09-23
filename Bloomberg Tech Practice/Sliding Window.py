@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 # best time to buy and sell stock
 def maxProfit(prices):
     if len(prices) == 1:
@@ -41,4 +44,27 @@ def lengthOfLongestSubstring(s):
             seen.remove(s[l])
             l += 1
 
+    return max_len
+
+
+# longest repeating character (incorrect)
+def characterReplacement(self, s: str, k: int) -> int:
+    l, r = 0, 1
+    max_len = 0
+
+    if len(s) == 0:
+        return 0
+    if len(s) == 1:
+        return 1
+
+    while l != len(s) and r != len(s):
+        count = Counter(s[l:r])
+        maxf = max(count.values())
+
+        if r - l + 1 <= k or maxf + k >= r - l:
+            max_len = max(max_len, r - l + 1)
+            print(s[l:r], count, max_len)
+            r += 1
+        else:
+            l += 1
     return max_len
