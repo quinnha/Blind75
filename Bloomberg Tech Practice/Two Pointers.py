@@ -16,4 +16,30 @@ def isPalindrome(s):
     return True
 
 
-print(isPalindrome("0P"))
+# three sum
+def threeSum(nums):
+    ret = []
+    nums = sorted(nums)
+
+    for left in range(len(nums) - 2):
+        if left > 0 and nums[left] == nums[left - 1]:
+            continue
+
+        mid = left + 1
+        right = len(nums) - 1
+
+        while mid < right:
+            curr = nums[left] + nums[mid] + nums[right]
+            if curr < 0:
+                mid += 1
+            elif curr > 0:
+                right -= 1
+            else:
+                ret.append([nums[left], nums[mid], nums[right]])
+                while mid < right and nums[mid] == nums[mid + 1]:
+                    mid += 1
+                while mid < right and nums[right] == nums[right - 1]:
+                    right -= 1
+                mid += 1
+                right -= 1
+    return ret
