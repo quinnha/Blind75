@@ -1,3 +1,6 @@
+from queue import PriorityQueue
+
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -150,3 +153,22 @@ def hasCycle(head):
         return True
     except:
         return False
+
+
+# merge k lists
+def mergeKLists(lists):
+    dummy = ListNode()
+    curr = dummy
+    q = PriorityQueue()
+
+    for i, node in enumerate(lists):
+        if node:
+            q.put((node.val, i, node))
+
+    while q.qsize() > 0:
+        pop = q.get()
+        curr.next = pop[2]
+        curr = curr.next
+        if curr.next:
+            q.put((curr.next.val, pop[1], curr.next))
+    return dummy.next
