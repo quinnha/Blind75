@@ -2,6 +2,9 @@
 def isPalindrome(s):
     parsed = "".join(x.lower() for x in s if x.isalnum())
 
+    # easy way
+    # return parsed == parsed[::-1]
+
     left = 0
     right = len(parsed) - 1
 
