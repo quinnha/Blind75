@@ -16,3 +16,13 @@ def invertTree(root):
 
     reverse(root)
     return root
+
+
+# max depth
+def maxDepth(root):
+    def traverse(node, depth):
+        if not node:
+            return depth
+        return max(traverse(node.left, depth + 1), traverse(node.right, depth + 1))
+
+    return traverse(root, 0)
