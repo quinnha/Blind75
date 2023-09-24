@@ -102,3 +102,22 @@ def levelOrder(root):
             ret.append(ans)
 
     return ret
+
+
+# kth smallest
+def kthSmallest(root, k):
+    heap = []
+
+    def traverse(node):
+        if not node:
+            return
+        heap.append(node.val)
+        traverse(node.left)
+        traverse(node.right)
+
+    traverse(root)
+    heapq.heapify(heap)
+    for i in range(k - 1):
+        heapq.heappop(heap)
+
+    return heapq.heappop(heap)
