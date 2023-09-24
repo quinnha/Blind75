@@ -26,3 +26,16 @@ def maxDepth(root):
         return max(traverse(node.left, depth + 1), traverse(node.right, depth + 1))
 
     return traverse(root, 0)
+
+
+# same tree
+def isSameTree(p, q):
+    def traverse(p, q):
+        if not p and not q:
+            return True
+        if not p or not q:
+            return False
+        if p.val == q.val:
+            return traverse(p.left, q.left) and traverse(p.right, q.right)
+
+    return traverse(p, q)
