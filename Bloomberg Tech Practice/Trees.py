@@ -71,8 +71,34 @@ def isSubtree(a, b):
 
 # lowest common ancestor
 def lowestCommonAncestor(root, p, q):
-    # keep doing down if they are in the same subtree -> the moment that they arent in the subtree, thats the LCA
+    # keep doing down if they are in the same subtree -> the moment that they arent in the subtree, thats the LCA -> ordered btree bruh
 
     while (root.val - p.val) * (root.val - q.val) > 0:
         root = root.left if p.val < root.val else root.right
     return root
+
+
+# level order traversal
+def levelOrder(root):
+    if not root:
+        return []
+    queue = [root]
+    ret = [[root.val]]
+
+    while queue:
+        ans = []
+        for i in range(len(queue)):
+            node = queue.pop(0)
+            if not node:
+                continue
+            if node.left:
+                ans.append(node.left.val)
+            if node.right:
+                ans.append(node.right.val)
+            queue.append(node.left)
+            queue.append(node.right)
+
+        if ans:
+            ret.append(ans)
+
+    return ret
