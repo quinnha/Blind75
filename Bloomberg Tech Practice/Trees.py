@@ -148,3 +148,25 @@ def kthSmallest(root, k):
     count = k
     helper(root)
     return number
+
+
+# is valid bst
+def isValidBST(root):
+    # inorder traversal will be in numerical order
+    out = []
+
+    def inOrder(root, out):
+        if not root:
+            return
+
+        inOrder(root.left, out)
+        out.append(root.val)
+        inOrder(root.right, out)
+
+    inOrder(root, out)
+
+    for i in range(1, len(out)):
+        if out[i - 1] >= out[i]:
+            return False
+
+    return True
