@@ -1,3 +1,6 @@
+import heapq
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -121,3 +124,27 @@ def kthSmallest(root, k):
         heapq.heappop(heap)
 
     return heapq.heappop(heap)
+
+
+# kth smallest (indended version)
+def kthSmallest(root, k):
+    # basically go all the way left until you cant, then go right once,
+    # then go all the way left, decreasing your k until its 0,
+    # then its the value you want (cool algo)
+
+    number = 0
+    count = 0
+
+    def helper(node):
+        if not node.left:
+            helper(node.left)
+        count -= 1
+        if count == 0:
+            number = node.val
+            return
+        if not node.right:
+            helper(node.right)
+
+    count = k
+    helper(root)
+    return number
