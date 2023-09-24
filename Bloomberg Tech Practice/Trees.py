@@ -67,3 +67,12 @@ def isSubtree(a, b):
         return dfs(s.left, t) or dfs(s.right, t)
 
     return dfs(a, b)
+
+
+# lowest common ancestor
+def lowestCommonAncestor(root, p, q):
+    # keep doing down if they are in the same subtree -> the moment that they arent in the subtree, thats the LCA
+
+    while (root.val - p.val) * (root.val - q.val) > 0:
+        root = root.left if p.val < root.val else root.right
+    return root
