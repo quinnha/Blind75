@@ -131,3 +131,19 @@ def removeDuplicates(self, s: str, k: int) -> str:
     stack = stack[1:]
 
     return "".join(x for x in stack)
+
+
+# merge intervals
+def merge(intervals):
+    sort = sorted(intervals)
+    out = []
+
+    new_interval = sort[0]
+    for interval in sort:
+        if interval[0] <= new_interval[1]:
+            new_interval[1] = max(new_interval[1], interval[1])
+        else:
+            out.append(new_interval)
+            new_interval = interval
+
+    return out + [new_interval]
