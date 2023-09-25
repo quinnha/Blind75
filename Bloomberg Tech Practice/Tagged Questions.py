@@ -98,3 +98,11 @@ def numIslands(grid):
                 ret += 1
 
     return ret
+
+
+# two city scheduling
+def twoCitySchedCost(costs):
+    first = [i for i, j in costs]
+    diff = sorted([j - i for i, j in costs])
+    print(diff)
+    return sum(first) + sum(diff[: len(costs) // 2])
