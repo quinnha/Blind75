@@ -106,3 +106,28 @@ def twoCitySchedCost(costs):
     diff = sorted([j - i for i, j in costs])
     print(diff)
     return sum(first) + sum(diff[: len(costs) // 2])
+
+
+# remove adjacent duplicates in string 2
+def removeDuplicates(self, s: str, k: int) -> str:
+    s = list(s)
+    stack = [" "]
+
+    for c in s:
+        curr_string = stack.pop()
+
+        if c == curr_string[-1]:
+            curr_string += c
+            if len(curr_string) != k:
+                stack.append(curr_string)
+
+        else:
+            stack.append(curr_string)
+            stack.append(c)
+
+        if len(stack) == 0:
+            stack.append(" ")
+
+    stack = stack[1:]
+
+    return "".join(x for x in stack)
