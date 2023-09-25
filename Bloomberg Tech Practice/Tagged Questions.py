@@ -1,3 +1,7 @@
+import random
+from collections import Counter
+
+
 # Insert Delete GetRandom O(1)
 class RandomizedSet:
     def __init__(self):
@@ -21,3 +25,24 @@ class RandomizedSet:
 
     def getRandom(self) -> int:
         return self.nums[random.randint(0, len(self.nums) - 1)]
+
+
+# Design underground system
+class UndergroundSystem:
+    def __init__(self):
+        self.ids = {}
+        self.pairs = Counter()
+        self.freqs = Counter()
+
+    def checkIn(self, id: int, stationName: str, t: int) -> None:
+        self.ids[id] = (stationName, t)
+
+    def checkOut(self, id: int, stationName: str, t: int) -> None:
+        name, start_t = self.ids.pop(id)
+        self.pairs[name, stationName] += t - start_t
+        self.freqs[name, stationName] += 1
+
+    def getAverageTime(self, startStation: str, endStation: str) -> float:
+        return (
+            self.pairs[startStation, endStation] / self.freqs[startStation, endStation]
+        )
