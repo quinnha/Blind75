@@ -147,3 +147,52 @@ def merge(intervals):
             new_interval = interval
 
     return out + [new_interval]
+
+
+# flatten multilevel doubly linked list
+class Node:
+    def __init__(self, val, prev, next, child):
+        self.val = val
+        self.prev = prev
+        self.next = next
+        self.child = child
+
+
+def flatten(head):
+    # if child -> go into child
+    # if next -> go into next
+    # if none -> go all the way way
+
+    if not head:
+        return
+
+    curr = Node()
+    ret_head = curr
+    stack = [head]
+    prev = None
+
+    while stack:
+        node = stack.pop(-1)
+        if not node:
+            continue
+        node.prev = prev
+        prev = node
+        curr.next = node
+        curr = curr.next
+        if node.next:
+            stack.append(node.next)
+        if node.child:
+            stack.append(node.child)
+
+    temp = ret_head.next
+    prev = None
+
+    # while temp:
+    #     temp.prev = prev
+    #     prev = temp
+    #     temp = temp.next
+
+    # while ret_head:
+    #     print(ret_head.val, ret_head.prev, ret_head.next, ret_head.child)
+    #     ret_head = ret_head.next
+    return ret_head.next
