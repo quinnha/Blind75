@@ -196,3 +196,59 @@ def flatten(head):
     #     print(ret_head.val, ret_head.prev, ret_head.next, ret_head.child)
     #     ret_head = ret_head.next
     return ret_head.next
+
+
+# binary string with wildcard
+def yiliQ(s):
+    queue = [""]
+    ret = []
+
+    while queue:
+        curr = queue.pop()
+        if len(curr) == len(s):
+            ret.append(curr)
+        else:
+            if s[len(curr)] == "?":
+                queue.append(curr + "1")
+                queue.append(curr + "0")
+            else:
+                queue.append(curr + s[len(curr)])
+    return ret
+
+
+# string with wildcard
+def yiliQ2(s):
+    queue = [""]
+    ret = []
+    alphabet = [chr(ord("a") + i) for i in range(26)]
+
+    while queue:
+        curr = queue.pop()
+        if len(curr) == len(s):
+            ret.append(curr)
+        else:
+            if s[len(curr)] == "?":
+                for a in alphabet:
+                    queue.append(curr + a)
+            else:
+                queue.append(curr + s[len(curr)])
+    return ret
+
+
+# 1d candy crush (Remove All Adjacent Duplicates in String II)
+def yiliQ3(s):
+    stack = []
+
+    curr = ""
+
+    for c in s:
+        if len(curr) == 3:
+            curr = stack.pop()
+
+        if c not in curr:
+            stack.append(curr)
+            curr = c
+        else:
+            curr += c
+
+    return "".join(x for x in stack) + curr
